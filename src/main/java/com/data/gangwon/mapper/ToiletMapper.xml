@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- <mapper namespace="com.data.gangwon.mapper.ToiletMapper">
+ -->
+<mapper namespace="com.data.gangwon.mapper.ToiletMapper">
+
+<!-- 
+ * MyBatis 방금 INSERT한 키값 받기
+    useGeneratedKeys="true" : 방금INSERT한 행의 프라이머리 키값을 받을 수있음 
+    keyProperty="변수명" : 프라이머리 키값을 담을 VO객체의 변수명
+ -->
+
+	<!-- GPS 위도 경도에서 반경 5KM 이내의 데이터 10건 추출 -->
+	<select id="getToiletList" resultType="com.data.gangwon.dto.ToiletDTO">
+	<![CDATA[
+		SELECT 	( 6371 * acos( cos( radians(#{gpsLat}) ) * cos( radians(lat) ) * cos( radians(lng) - radians(#{gpsLng}) ) + sin( radians(#{gpsLat}) ) * sin( radians(lat) ) ) ) AS distance, 
+				SEQ, TOILET_NM, GUGUN_NM, LOCPLC_ROADNM_ADDR, LOCPLC_LOTNO_ADDR, T_COMMON_TF, T_STIME,
+				T_MAN3_SU, T_MAN4_SU, T_MAN5_SU, T_MAN6_SU, T_WOMAN2_SU, T_WOMAN3_SU,lat,lng
+		FROM TOILET_TB HAVING distance < 5 ORDER BY distance LIMIT 0 , 10
+	]]>
+	</select>
+
+</mapper>
+
