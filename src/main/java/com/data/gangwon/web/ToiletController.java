@@ -20,5 +20,13 @@ public class ToiletController {
 	public Integer index() {
 		return toiletMapper.toiletCount();
 	}
+	
+	@RequestMapping(value = "/demo2")
+	@ResponseBody
+	public String index2() {
+		return "Success!";
+	}
+	
+	
 
 }
