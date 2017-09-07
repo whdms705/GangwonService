@@ -3,8 +3,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- <mapper namespace="com.data.gangwon.mapper.ToiletMapper">
- -->
+
 <mapper namespace="com.data.gangwon.mapper.ToiletMapper">
 
 <!-- 
@@ -21,6 +20,10 @@
 				T_MAN3_SU, T_MAN4_SU, T_MAN5_SU, T_MAN6_SU, T_WOMAN2_SU, T_WOMAN3_SU,lat,lng
 		FROM TOILET_TB HAVING distance < 5 ORDER BY distance LIMIT 0 , 10
 	]]>
+	</select>
+	
+	<select id="toiletCount" resultType="Integer">
+	select count(*) from TOILET_TB
 	</select>
 
 </mapper>

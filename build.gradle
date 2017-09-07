@@ -65,7 +65,7 @@ uploadArchives {
 
 
 war {
-	baseName = 'gangwon'
-	version = '0.0.1-SNAPSHOT'
+	archiveName  'gangwon.war'
+	include '**/*.xml'
 	
 }
