@@ -25,6 +25,14 @@ public class ToiletDTO {
 	private String gpsLng;		//현재 본인위치 위도
 	private String gpsLat;		//현재 본인위치 경도	
 	
+	//댓글
+	private String cmt_seq;		//댓글시퀀스
+	private String cmt_grade;	//댓글 별점
+	private String cmt_dt;		//댓글등록일
+	private String cmt_content;	//댓글내용
+	private String cmt_id;		//댓글단사람이름
+	
+	
 	public String getGubun() {
 		return gubun;
 	}
@@ -151,5 +159,35 @@ public class ToiletDTO {
 	public void setGpsLat(String gpsLat) {
 		this.gpsLat = gpsLat;
 	}
-
+	public String getCmt_seq() {
+		return cmt_seq;
+	}
+	public void setCmt_seq(String cmt_seq) {
+		this.cmt_seq = cmt_seq;
+	}
+	public String getCmt_grade() {
+		return cmt_grade;
+	}
+	public void setCmt_grade(String cmt_grade) {
+		this.cmt_grade = cmt_grade;
+	}
+	public String getCmt_dt() {
+		return cmt_dt;
+	}
+	public void setCmt_dt(String cmt_dt) {
+		this.cmt_dt = cmt_dt;
+	}
+	public String getCmt_content() {
+		return cmt_content;
+	}
+	public void setCmt_content(String cmt_content) {
+		this.cmt_content = cmt_content;
+	}
+	public String getCmt_id() {
+		return cmt_id;
+	}
+	public void setCmt_id(String cmt_id) {
+		this.cmt_id = cmt_id;
+	}
+	
 }
