@@ -2,7 +2,8 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.data.gangwon.mapper.ToiletMapper">
+
+<mapper namespace="com.data.gangwon.mapper.ParkingMapper">
 
 <!-- 
  * MyBatis 방금 INSERT한 키값 받기
@@ -11,17 +12,16 @@
  -->
 
 	<!-- GPS 위도 경도에서 반경 5KM 이내의 데이터 10건 추출 -->
-	<select id="getToiletList" resultType="com.data.gangwon.dto.ToiletDTO">
+	<select id="getParkingList" resultType="com.data.gangwon.dto.ParkingDTO">
 	<![CDATA[
 		SELECT 	( 6371 * acos( cos( radians(#{gpsLat}) ) * cos( radians(lat) ) * cos( radians(lng) - radians(#{gpsLng}) ) + sin( radians(#{gpsLat}) ) * sin( radians(lat) ) ) ) AS distance, 
-				SEQ, TOILET_NM, GUGUN_NM, LOCPLC_ROADNM_ADDR, LOCPLC_LOTNO_ADDR, T_COMMON_TF, T_STIME,
-				T_MAN3_SU, T_MAN4_SU, T_MAN5_SU, T_MAN6_SU, T_WOMAN2_SU, T_WOMAN3_SU,lat,lng
-		FROM TOILET_TB HAVING distance < 5 ORDER BY distance LIMIT 0 , 10
+				GUBUN, SEQ, PARKING_NM, PARKING_PART, PARKING_TYPE, LOCPLC_LOTNO_ADDR, LOCPLC_ROADNM_ADDR, P_PAY, CONTACT, LAT, LNG
+		FROM PARKING_TB HAVING distance < 5 ORDER BY distance LIMIT 0 , 10
 	]]>
 	</select>
 	
 	<!-- 댓글 리스트 조회 -->
-	<select id="getToiletCmtList" resultType="com.data.gangwon.dto.ToiletDTO">
+	<select id="getParkingCmtList" resultType="com.data.gangwon.dto.ParkingDTO">
 	<![CDATA[	
 		SELECT 
 			CMT_SEQ,
@@ -32,12 +32,13 @@
 			CMT_CONTENT,
 			CMT_ID
 		FROM COMMENT_TB 
-		WHERE GUBUN='toiletdata' AND SEQ=#{seq}
+		WHERE GUBUN='parkingdata' AND SEQ=#{seq}
 	]]>
 	</select>	
 
+	<!-- mysql은 입력하지 않아도 자동증가 기본 설정해놓으면 CMT_SEQ 자동증가-->
 	<!-- 댓글등록 -->
-	<insert id="commentRegist" parameterType="com.data.gangwon.dto.ToiletDTO" >
+	<insert id="parkingCommentRegist" parameterType="com.data.gangwon.dto.ParkingDTO" >
 	<![CDATA[
 		INSERT INTO COMMENT_TB 
 		(
@@ -58,7 +59,6 @@
 		)
 	]]>
 	</insert>
-
 
 
 </mapper>
