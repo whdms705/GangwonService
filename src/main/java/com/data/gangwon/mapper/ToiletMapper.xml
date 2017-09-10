@@ -17,7 +17,7 @@
 		SELECT 	( 6371 * acos( cos( radians(#{gpsLat}) ) * cos( radians(lat) ) * cos( radians(lng) - radians(#{gpsLng}) ) + sin( radians(#{gpsLat}) ) * sin( radians(lat) ) ) ) AS distance, 
 				SEQ, TOILET_NM, GUGUN_NM, LOCPLC_ROADNM_ADDR, LOCPLC_LOTNO_ADDR, T_COMMON_TF, T_STIME,
 				T_MAN3_SU, T_MAN4_SU, T_MAN5_SU, T_MAN6_SU, T_WOMAN2_SU, T_WOMAN3_SU,lat,lng
-		FROM TOILET_TB HAVING distance < 5 ORDER BY distance LIMIT 0 , 5
+		FROM TOILET_TB ORDER BY distance LIMIT 0 , 5
 	]]>
 	</select>
 	

@@ -16,7 +16,7 @@
 	<![CDATA[
 		SELECT 	( 6371 * acos( cos( radians(#{gpsLat}) ) * cos( radians(lat) ) * cos( radians(lng) - radians(#{gpsLng}) ) + sin( radians(#{gpsLat}) ) * sin( radians(lat) ) ) ) AS distance, 
 				GUBUN, SEQ, PARKING_NM, PARKING_PART, PARKING_TYPE, LOCPLC_LOTNO_ADDR, LOCPLC_ROADNM_ADDR, P_PAY, CONTACT, LAT, LNG
-		FROM PARKING_TB HAVING distance < 5 ORDER BY distance LIMIT 0 , 5
+		FROM PARKING_TB ORDER BY distance LIMIT 0 , 5
 	]]>
 	</select>
 	
