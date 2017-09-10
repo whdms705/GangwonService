@@ -44,9 +44,8 @@ public class ToiletController {
 		toiletDTO.setGpsLng(request.getParameter("lng"));
 		toiletDTO.setGpsLat(request.getParameter("lat"));
 		*/
-		toiletDTO.setGpsLat("37.81774409");	//媛��뜲�씠�꽣
-		toiletDTO.setGpsLng("127.7158708");	//媛��뜲�씠�꽣
-
+		toiletDTO.setGpsLat("37.8828686");	//媛��뜲�씠�꽣
+		toiletDTO.setGpsLng("127.7220181");	//媛��뜲�씠�꽣
 		List<ToiletDTO> toiletList = toiletMapper.getToiletList(toiletDTO);
 
 		return toiletList;
