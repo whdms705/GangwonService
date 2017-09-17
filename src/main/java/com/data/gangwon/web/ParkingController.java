@@ -35,8 +35,8 @@ public class ParkingController {
 		parkingDTO.setGpsLng(request.getParameter("lng"));
 		parkingDTO.setGpsLat(request.getParameter("lat"));
 		
-		parkingDTO.setGpsLat("37.81774409");	//媛��뜲�씠�꽣
-		parkingDTO.setGpsLng("127.7158708");	//媛��뜲�씠�꽣
+		//parkingDTO.setGpsLat("37.81774409");	//媛��뜲�씠�꽣
+		//parkingDTO.setGpsLng("127.7158708");	//媛��뜲�씠�꽣
 
 		List<ParkingDTO> parkingList = parkingMapper.getParkingList(parkingDTO);
 

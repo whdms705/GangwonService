@@ -40,12 +40,12 @@ public class ToiletController {
 		response.addHeader("Access-Control-Allow-Origin", "*");
 		ToiletDTO toiletDTO=new ToiletDTO();
 		System.out.println(request.getParameter("lat")+" / "+request.getParameter("lng"));
-		/* gps 실제로는 아래꺼 주석풀어야함
+		/* gps 실제로는 아래꺼 주석풀어야함*/
 		toiletDTO.setGpsLng(request.getParameter("lng"));
 		toiletDTO.setGpsLat(request.getParameter("lat"));
-		*/
-		toiletDTO.setGpsLat("37.8828686");	//媛��뜲�씠�꽣
-		toiletDTO.setGpsLng("127.7220181");	//媛��뜲�씠�꽣
+		
+//		toiletDTO.setGpsLat("37.8828686");	//媛��뜲�씠�꽣
+//		toiletDTO.setGpsLng("127.7220181");	//媛��뜲�씠�꽣
 		List<ToiletDTO> toiletList = toiletMapper.getToiletList(toiletDTO);
 
 		return toiletList;
